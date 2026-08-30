@@ -1,0 +1,9 @@
+package com.mayur.journalApp.repository;
+
+import com.mayur.journalApp.entity.JournalEntry;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Component;
+
+public interface JournalEntryRepository extends JpaRepository<JournalEntry, Long> {
+
+}
