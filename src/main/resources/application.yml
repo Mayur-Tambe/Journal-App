@@ -17,10 +17,10 @@ spring:
   
   jpa:
     hibernate:
-      ddl-auto:update
+      ddl-auto: update
     show-sql: true
     autoindex:
-      create:true
+      create: true
 
 server:
   port: 8081
