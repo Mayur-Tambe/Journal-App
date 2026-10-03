@@ -8,3 +8,11 @@
 spring:
   profiles:
     active: dev
+
+#logging:
+#  level:
+#    com:
+#      mayur:
+#        journalApp:
+#          service:
+#            UserService: Trace
