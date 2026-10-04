@@ -1,6 +1,8 @@
 package com.mayur.journalApp.service;
 
 import com.mayur.journalApp.api.response.WeatherResponse;
+import com.mayur.journalApp.cache.AppCache;
+import com.mayur.journalApp.constants.PlaceHolders;
 import lombok.Getter;
 import lombok.Setter;
 import org.antlr.v4.runtime.atn.SemanticContext;
@@ -20,15 +22,16 @@ import org.springframework.web.client.RestTemplate;
 public class WeatherAPIService {
 
     @Value("${weather.api.key}")
-    private String apiKey;
+    private String apiKey;  // not Final becauase we are initializing it later. // not Static - bean/instance is being created and spring does not assign value to Static variables in the bean.
 
-    private static final String API = "http://api.weatherstack.com/current?access_key=API_KEY&query=CITY";
+    @Autowired
+    private AppCache appCache;
 
     @Autowired
     private RestTemplate restTemplate;
 
     public WeatherResponse getWeather(String city){
-        String finalAPI = API.replace("CITY",city).replace("API_KEY",apiKey);
+        String finalAPI = appCache.appCache.get(AppCache.keys.WEATHER_API.toString()).replace(PlaceHolders.CITY, city).replace(PlaceHolders.API_KEY,apiKey);
         ResponseEntity<WeatherResponse> response = restTemplate.exchange(finalAPI, HttpMethod.GET, null, WeatherResponse.class);
         WeatherResponse body = response.getBody();
         return body;
