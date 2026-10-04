@@ -2,7 +2,9 @@ package com.mayur.journalApp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableTransactionManagement //Needs to add this to execute transactions.
@@ -16,6 +18,11 @@ public class JournalApplication {
 	// public PlatformTransactionManager add(){
 	// 	return new JpaTransactionManager();
 	// }
+
+	@Bean
+	public RestTemplate restTemplate(){
+		return new RestTemplate();
+	}
 
 }
 

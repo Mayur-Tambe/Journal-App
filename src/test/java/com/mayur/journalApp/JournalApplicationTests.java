@@ -3,7 +3,7 @@ package com.mayur.journalApp;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+@SpringBootTest //--disabled tests
 class JournalApplicationTests {
 
 	@Test
