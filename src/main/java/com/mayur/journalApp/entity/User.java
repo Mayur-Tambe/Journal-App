@@ -2,10 +2,7 @@ package com.mayur.journalApp.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
 import org.springframework.stereotype.Indexed;
 
 import java.util.ArrayList;
@@ -14,6 +11,7 @@ import java.util.List;
 @Data
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "users")
 public class User {
 
@@ -26,6 +24,9 @@ public class User {
     private String userName;
     @NonNull
     private String password;
+    private String email;
+    @Column(name = "sentimental_analysis",nullable = false)
+    private boolean sentimentalAnalysis;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonManagedReference
