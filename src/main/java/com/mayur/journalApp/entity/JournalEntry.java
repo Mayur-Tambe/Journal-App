@@ -2,6 +2,7 @@ package com.mayur.journalApp.entity;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.mayur.journalApp.enums.Sentiment;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -20,6 +21,7 @@ public class JournalEntry {
     private String title;
     private String content;
     private LocalDateTime date;
+    private Sentiment sentiment;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

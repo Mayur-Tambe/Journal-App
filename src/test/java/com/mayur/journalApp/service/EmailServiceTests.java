@@ -13,6 +13,6 @@ public class EmailServiceTests {
     EmailService emailService;
     @Test
     public void javaMailSenderTests(){
-        emailService.JavaMailSender("mstambe81@gmail.com", "Email from Journal App", "Hi, please continue app development");
+        emailService.sendEmail("mstambe81@gmail.com", "Email from Journal App", "Hi, please continue app development");
     }
 }

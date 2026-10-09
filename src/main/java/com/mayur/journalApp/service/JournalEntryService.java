@@ -32,6 +32,7 @@ public class JournalEntryService {
     public List<JournalEntry> getAllEntries(){
         return journalEntryRepository.findAll();
     }
+
     public Optional<JournalEntry> getEntryById(Long id){ //Optional returns null if data not present else return data
         return journalEntryRepository.findById(id);
     }
